@@ -65,13 +65,22 @@ export default function SearchBar({ data, onSelect }) {
           value={search}
         />
       </div>
-      <div className="city-item-container">
-        <ul>
-          {options.map((city) => (
-            <li key={city.id} data-city={JSON.stringify(city)} onClick={clickHandler}>{`${city.name} (${city.country})`}</li>
-          ))}
-        </ul>
-      </div>
+      { (options.length > 0) ? (
+          <div className="city-item-container">
+            <ul>
+              {options.map((city) => (
+                <li 
+                  key={city.id} 
+                  data-city={JSON.stringify(city)} 
+                  onClick={clickHandler}
+                >
+                  {`${city.name} (${city.country})`}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : null
+      }
     </div>
   );
 }

@@ -1,11 +1,14 @@
+import fetchData from '../utils'
 import { useEffect, useState, useRef } from 'react'
+
 import Head from 'next/head'
 import SearchBar from '../components/search-bar'
 import BarChart from '../components/bar-chart'
-import fetchData from '../utils'
-import styles from '../styles/Home.module.css'
+import Summary from '../components/summary';
 
-export default function Home() {
+import styles from '../styles/App.module.css'
+
+export default function App() {
   const appTitle = 'Weather Forecast';
   // Avoid loading twice while using react v18
   const initFlag = useRef(true);
@@ -16,6 +19,7 @@ export default function Home() {
   const [minTempList, setMinTempList] = useState([]);
   const [humidityList, setHumidityList] = useState([]);
   
+  // Convert raw data for bar chart. 
   const chartFormat = (rawData, valueField) => {
     return rawData.map((item) => {
       return {
@@ -25,12 +29,14 @@ export default function Home() {
       };
     });
   };
+  // Covert raw data for daily summary, such as max/min temperature and average humidity.
   const dailyInfoFormat = (rawData) => {
     const hashMap = new Map();
     let dailyInfo = [];
 
+    // Use date as the key and compute the max/min temperature and average humidity.
     rawData.forEach((item) => {
-      const [key] = item.dt_txt.split(' '); // Use date as the key
+      const [key] = item.dt_txt.split(' ');
       const data = hashMap.get(key);
 
       if (data) {
@@ -89,34 +95,12 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h2 className={styles.title}>{appTitle}</h2>
+        <h2 className={styles.title}>{`${appTitle} (UTC Time)`}</h2>
         <SearchBar data={cities} onSelect={selectHandler} />
-        <div className="daily-summary-container">
-          {daily.map((item) => {
-            const dailyTemp = [{
-              id: `${item.date}_max`,
-              value: item.tempMax,
-              label: 'Maximum',
-            }, {
-              id: `${item.date}_min`,
-              value: item.tempMin,
-              label: 'Minimum',
-            }]
-            return (
-              <div className="daily-container" key={item.date}>
-                <span>{item.date}</span>
-                <div className="daily-chart-container">
-                  <p>Avg. Humidity</p>
-                  <div className="pie-chart" style={{ '--pie-value': item.humidityAvg + '%' }}>{item.humidityAvg}%</div>
-                  <BarChart title="Temperature (°C)" data={dailyTemp} />
-                </div>
-              </div>
-            )
-          })}
-        </div>
-        {/* <BarChart title="4-Day Maximum Temperature (°C)" data={maxTempList} />
-        <BarChart title="4-Day Minimum Temperature (°C)" data={minTempList} />
-        <BarChart title="4-Day Humidity (%)" data={humidityList} /> */}
+        <Summary data={daily} />
+        <BarChart title="Next 96-Hour Maximum Temperature (°C)" data={maxTempList} />
+        <BarChart title="Next 96-Hour Minimum Temperature (°C)" data={minTempList} />
+        <BarChart title="Next 96-Hour Humidity (%)" data={humidityList} color="#57b6d0" />
       </main>
 
       <footer className={styles.footer}>

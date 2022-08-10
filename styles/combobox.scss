@@ -8,11 +8,19 @@
     padding-right: 10px;
     font-weight: 600;
   }
+
+  input {
+    width: 25rem;
+    height: 3rem;
+    padding-left: 10px;
+    font-size: 1.25rem;
+  }
 }
 
 .city-item-container {
   padding-left: 8rem;
   width: 33rem;
+  
   > ul {
     max-height: 10rem;
     list-style: none;
@@ -31,6 +39,7 @@
     li:hover {
       color: black;
       background-color: #d0d0d0;
+      cursor: pointer;
     }
   }
 }

@@ -20,13 +20,6 @@ a {
   box-sizing: border-box;
 }
 
-input {
-  width: 25rem;
-  height: 3rem;
-  padding-left: 10px;
-  font-size: 1.25rem;
-}
-
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
@@ -35,26 +28,4 @@ input {
     color: white;
     background: black;
   }
-}
-
-.daily-summary-container {
-  display: flex;
-  padding: 40px 20px 0 20px;
-}
-.daily-container {
-  text-align: center;
-}
-.daily-chart-container {
-  display: block;
-  width: 15rem;
-  min-height: 5rem;
-  border-left: 1px solid rgb(113,113,113);
-  border-right: 0; 
-  padding: 10px; 
-}
-.daily-chart-container:last-child {
-  border-right: 1px solid rgb(113,113,113);
-}
-.daily-chart-container > .bar-chart {
-  padding: 20px 0 0 0;
 }

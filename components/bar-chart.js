@@ -1,6 +1,6 @@
-import { useEffect, useState, Fragment } from 'react'
+import { Fragment } from 'react'
 
-export default function BarChart({ title, data }) {
+export default function BarChart({ title, data, color='#16A085' }) {
 
   return (
     <Fragment>
@@ -15,7 +15,10 @@ export default function BarChart({ title, data }) {
                 { data.map((item) => (
                   <td key={item.id}>
                     <span>{item.value}</span>
-                    <div className="bar" style={{ height: (item.value/40*100).toFixed(2) + 'px'}}></div>
+                    <div className="bar" style={{ 
+                      '--bar-color': color,
+                      height: (item.value/40*100).toFixed(2) + 'px'
+                    }}/>
                     <span>{item.label}</span>
                   </td>
                 ))}

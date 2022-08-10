@@ -23,6 +23,6 @@
   }
   .bar {
     margin: 0 10px;
-    background: #16A085;
+    background: var(--bar-color);
   }
 }
