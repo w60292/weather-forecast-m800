@@ -1,0 +1,28 @@
+.bar-chart {
+  padding: 40px 20px 0 20px;
+  border-block-end: 1px solid rgb(113,113,113);
+  
+  table {
+    width: 100%;
+  }
+}
+.bar-chart-title {
+  text-align: center;
+}
+
+.bars {
+  td {
+    width: 3rem;
+    vertical-align: bottom;
+  }
+  div:hover {
+    opacity: 0.6;
+  }
+  span {
+    font-size: .5rem;
+  }
+  .bar {
+    margin: 0 10px;
+    background: #16A085;
+  }
+}
