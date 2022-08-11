@@ -1,7 +1,18 @@
 import { Fragment } from 'react'
 
+/**
+ * Render a bar chart with title, labels and values.
+ * 
+ * Usage: 
+ * <BarChart 
+ *  title="Chart Title" 
+ *  data={your_data_array}
+ *  color=#123456
+ * />
+ * 
+ * For example, data = [{ id, value, label }, ...]
+ */
 export default function BarChart({ title, data, color='#16A085' }) {
-
   return (
     <Fragment>
       { data && data.length ? (

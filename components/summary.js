@@ -1,6 +1,13 @@
 import BarChart from '../components/bar-chart'
 import PieChart from '../components/pie-chart'
 
+/**
+ * Next 96-hour (4-day) forecast summary with avg. 
+ * humidity (pie chart) and max/min temperature (bar chart).
+ * 
+ * Require Data Format:
+ * [{ date, tempMax, tempMin, humidityAvg }, ...]
+ */
 export default function Summary({ data }) {
   const barChartDataConverter = (item) => {
     return [

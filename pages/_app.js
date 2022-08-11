@@ -1,8 +1,8 @@
 import '../styles/globals.css'
-import '../styles/combobox.scss'
-import '../styles/bar-chart.scss'
-import '../styles/pie-chart.scss'
-import '../styles/summary.scss'
+import '../styles/components/bar-chart.scss'
+import '../styles/components/pie-chart.scss'
+import '../styles/components/search-bar.scss'
+import '../styles/components/summary.scss'
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />
