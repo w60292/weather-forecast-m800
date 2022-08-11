@@ -185,9 +185,9 @@ export default function App() {
           handleSelect={searchSelectHandler} 
         />
         <Summary data={state.daily} />
-        <BarChart title="Next 96-Hour Maximum Temperature (°C)" data={state.maxTempList} />
-        <BarChart title="Next 96-Hour Minimum Temperature (°C)" data={state.minTempList} />
-        <BarChart title="Next 96-Hour Humidity (%)" data={state.humidityList} color="#57b6d0" />
+        <BarChart title="Next 96-hour Maximum Temperature (°C)" data={state.maxTempList} />
+        <BarChart title="Next 96-hour Minimum Temperature (°C)" data={state.minTempList} />
+        <BarChart title="Next 96-hour Humidity (%)" data={state.humidityList} color="#57b6d0" />
       </main>
 
       <footer className={styles.footer}>
